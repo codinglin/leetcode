@@ -1,4 +1,4 @@
-package JZOffer2;
+package JZOffer;
 
 import java.util.LinkedList;
 import java.util.Queue;

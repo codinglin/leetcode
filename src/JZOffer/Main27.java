@@ -1,4 +1,4 @@
-package JZOffer2;
+package JZOffer;
 
 public class Main27 {
     public TreeNode mirrorTree(TreeNode root) {

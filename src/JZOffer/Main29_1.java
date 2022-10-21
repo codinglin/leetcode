@@ -1,4 +1,4 @@
-package JZOffer2;
+package JZOffer;
 
 public class Main29_1 {
     public int[] spiralOrder(int[][] matrix) {

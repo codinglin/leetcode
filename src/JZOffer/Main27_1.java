@@ -1,4 +1,4 @@
-package JZOffer2;
+package JZOffer;
 
 import java.util.Stack;
 
@@ -7,7 +7,7 @@ public class Main27_1 {
         if(root == null){
             return null;
         }
-        Stack<TreeNode> stack = new Stack<>(){{add(root);}};
+        Stack<TreeNode> stack = new Stack<TreeNode>(){{add(root);}};
         while(!stack.isEmpty()){
             TreeNode node = stack.pop();
             if(node.left != null){

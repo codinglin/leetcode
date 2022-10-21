@@ -1,4 +1,4 @@
-package JZOffer2;
+package JZOffer;
 
 public class Main28 {
     public boolean isSymmetric(TreeNode root) {
