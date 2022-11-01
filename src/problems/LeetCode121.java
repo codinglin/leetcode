@@ -45,6 +45,18 @@ public class LeetCode121 {
         return dp[length-1][0];
     }
 
+
+    public int maxProfit1(int[] prices) {
+        int max = 0;
+        int[] dp = new int[prices.length];
+        dp[0] = prices[0];
+        for (int i = 1; i < prices.length; i++) {
+            dp[i] = Math.min(dp[i - 1], prices[i]);
+            max = Math.max((prices[i] - dp[i]), max);
+        }
+        return max;
+    }
+
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
         int n = scanner.nextInt();
