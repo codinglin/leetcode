@@ -68,3 +68,25 @@ public class LeetCode121 {
         System.out.println(ans);
     }
 }
+
+
+class LeetCode121_1{
+    public static int maxProfit(int[] prices) {
+        int n = prices.length;
+        int[] dp = new int[n];
+        int minCost = prices[0];
+        int maxProfit = 0;
+        for (int i = 1; i < n; i++) {
+            if(prices[i] < minCost){
+                minCost = prices[i];
+            }
+            dp[i] = Math.max(dp[i-1], prices[i] - minCost);
+            maxProfit = Math.max(maxProfit, dp[i]);
+        }
+        return maxProfit;
+    }
+
+    public static void main(String[] args) {
+        maxProfit(new int[]{1,2});
+    }
+}
