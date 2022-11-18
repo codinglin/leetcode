@@ -13,11 +13,6 @@
 使用深度优先遍历有[回头]的过程，在[回头]以后，状态变量需要设置成为和先前一样，因此在回到上一层结点的过程中，需要撤销上一次的选择，这个操作称之为[状态重置];
 
 深度优先遍历，借助系统栈空间，保存所需要的状态变量，在编码中只需要注意遍历到相应的结点的时候，状态变量的值是正确的，具体的做法是：往下走一层的时候，path 变量在尾部追加，而往回走的时候，需要撤销上一次的选择，也是在尾部操作，因此 path 变量是一个栈；
-
-作者：liweiwei1419
-链接：https://leetcode.cn/problems/permutations/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liweiw/
-来源：力扣（LeetCode）
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 ### 2. 解集不能包含重复的组合，那么如何去掉一个数组中重复的元素?
 
 很容易想到的方案是：先对数组**升序**排序，重复的元素一定不是排好序以后相同的连续数组区域的第1个元素。
@@ -55,7 +50,38 @@
 
 ## 滑动窗口
 
-## 分治
+## 二分法
+典型的是归并排序，利用二分思想。
+
+二分查找：适用于有序递增或者递减的数组。
+
+当然，解决很多题的时候，不一定需要整个数组都是有序的。
+
+例如逆序对 [code](src/NiukeTop101/BM20.java)，峰值数，或者是旋转数组的最小值。
+例如对于求解峰值数 [code](src/NiukeTop101/BM19.java)，只需要保证峰值的左边是递增的，峰值数的右边是递减的即可。旋转数组的最小值 [code](src/NiukeTop101/BM21.java)也是同样的道理，因为它的左边和它的右边都是递增的。
+
+通用的代码模板：
+```java
+class Solution{
+    public int search(int [] nums) {
+        int left = 0, right = nums.length - 1;
+        while(left <= right){
+            int middle = (left + right) / 2;
+            //最小的数字在mid右边
+            if (nums[middle] > target) {
+                right = middle - 1; // target 在左区间，所以[left, middle - 1]
+            } else if (nums[middle] < target) {
+                left = middle + 1; // target 在右区间，所以[middle + 1, right]
+            } else { // nums[middle] == target
+                return middle; // 数组中找到目标值，直接返回下标
+            }
+        }
+        return -1;
+    }
+}
+```
+
+亦或者是一种归并排序的方法，参见 [MergeSort](src/NiukeTop101/MergeSort.java)。
 
 ## 链表
 链表这类的题，可以多考虑双指针、快慢指针、栈等方式。
