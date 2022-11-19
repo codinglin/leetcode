@@ -5,19 +5,12 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
-public class BM23 {
-    /**
-     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
-     *
-     *
-     * @param root TreeNode类
-     * @return int整型一维数组
-     */
-    public int[] preorderTraversal (TreeNode root) {
+public class BM24 {
+    public int[] inorderTraversal (TreeNode root) {
         //添加遍历结果的数组
         List<Integer> list = new ArrayList();
         //递归前序遍历
-        preorder(root, list);
+        inorder(root, list);
         //返回的结果
         int[] res = new int[list.size()];
         for(int i = 0; i < list.size(); i++)
@@ -25,17 +18,17 @@ public class BM23 {
         return res;
     }
 
-    private void preorder(TreeNode root, List<Integer> result) {
+    private void inorder(TreeNode root, List<Integer> result) {
         if(root != null){
+            inorder(root.left, result);
             result.add(root.val);
-            preorder(root.left, result);
-            preorder(root.right, result);
+            inorder(root.right, result);
         }
     }
 }
 
-class BM23_1{
-    public int[] preorderTraversal (TreeNode root) {
+class BM24_1{
+    public int[] inorderTraversal (TreeNode root) {
         if(root == null){
             return new int[]{};
         }
@@ -45,12 +38,12 @@ class BM23_1{
         TreeNode p = root;
         while (!stack.isEmpty() || p != null){
             while (p != null){
-                list.add(p.val);
                 stack.push(p);
                 p = p.left;
             }
             if(!stack.isEmpty()){
                 p = stack.pop();
+                list.add(p.val);
                 p = p.right;
             }
         }
