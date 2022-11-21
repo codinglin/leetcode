@@ -1,6 +1,14 @@
 # leetcode
 个人刷题总结
 
+刷题部分节选：
+
++ LeetCode 热门 100 题：[code](src/HOT100)
++ 牛客笔试 必刷 101 题：[code](src/NiukeTOP101)
++ 设计模式 java 实现：[code](src/designPattern)
++ 剑指 Offer 第一版：[code](src/JZOffer)
++ 剑指 Offer 第二版：[code](src/JZOffer2)
+
 ## 动态规划
 具有最优子结构
 
