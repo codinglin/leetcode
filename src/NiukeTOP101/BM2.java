@@ -17,7 +17,7 @@ public class BM2 {
             pre = pre.next;
         }
         ListNode cur = pre.next;
-        ListNode cur_next ;
+        ListNode cur_next;
         for(int i=0;i<n-m;i++){
             cur_next = cur.next;
             cur.next = cur_next.next;
