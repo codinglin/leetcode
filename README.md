@@ -61,7 +61,7 @@
 ## 滑动窗口
 单调队列的思想 [code](src/NiukeTop101/BM45.java)。
 
-## 二分法
+## 二分法 [详细总结](src/summarize/binary-search.md)
 典型的是归并排序，利用二分思想。
 
 二分查找：适用于有序递增或者递减的数组。
