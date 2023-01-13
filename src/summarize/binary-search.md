@@ -38,7 +38,7 @@ class Solution {
         int left = 0, right = nums[nums.length - 1] - nums[0];
         while(left <= right) {
             int mid = (left + right) / 2;
-            if (count_not_greater(mid, nums) > k) {
+            if (count_not_greater(mid, nums) >= k) {
                 right = mid - 1;
             } else {
                 left = mid + 1;
@@ -49,7 +49,7 @@ class Solution {
     
     private int count_not_greater(int diff, int[] nums) {
         int i = 0, ans = 0;
-        for(int j = 1; j < nums.length; j ++){
+        for(int j = 0; j < nums.length; j ++){
             while(nums[j] - nums[i] > diff) {
                 i ++;
             }
@@ -224,3 +224,32 @@ private boolean possible(int mid){
 #### [475. 供暖器](../problems/LeetCode475.java)  (中等)
 
 #### [778. 水位上升的泳池中游泳](../problems/LeetCode778.java)（困难）
+
+### 计数二分
+
+与能力检测二分大致相同，见如下例题：
+
+### 例题
+
+#### [719. 找出第 k 小的距离对](../problems/LeetCode719.java)（困难）
+
+### 前缀和二分
+
+如果数组全是正的，那么其前缀和就是一个严格递增的数组，基于这个特性，可以在其之上做二分。类似的有单调栈/队列。
+
+### 例题
+
+#### [327. 找出第 k 小的距离对](../problems/LeetCode327.java)（困难）
+
+### 插入排序二分
+
+除了上面的前缀和之外，我们还可以自行维护有序序列。一般有两种方式：
+
+- 直接对序列排序。
+
+- 遍历过程维护一个新的有序序列，有序序列的内容为**已经遍历过的值的集合**。
+
+### 例题
+
+#### [493. 找出第 k 小的距离对](../problems/LeetCode493.java)（困难）
+
