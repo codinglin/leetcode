@@ -37,7 +37,7 @@ public class CreateTree {
     }
 
 
-    private static TreeNode create() {
+    public static TreeNode create() {
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
         String substring = str.substring(1, str.length()-1);

@@ -47,3 +47,9 @@ private void dfs(int i) {
 [226. 翻转二叉树](../problems/LeetCode226.java) (简单)（分治）
 
 [101. 翻转二叉树](../problems/LeetCode101.java) (简单)（分治）
+
+[951. 翻转等价二叉树](../problems/LeetCode951.java) (中等)（分治）
+
+[236. 二叉树的最近公共祖先](../problems/LeetCode236.java) (中等)（回溯 or 分治）
+
+[105. 从前序与中序遍历序列构造二叉树](../problems/LeetCode105.java) (中等)（分治）
