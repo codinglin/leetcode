@@ -3,3 +3,11 @@
 例题整理：
 
 [148. 排序链表](https://github.com/codinglin/leetcode/blob/master/src/problems/LeetCode148.java) (入门) 
+
+[56. 合并区间](https://github.com/codinglin/leetcode/blob/master/src/problems/LeetCode56.java) (入门) 
+
+[27. 移除元素](https://github.com/codinglin/leetcode/blob/master/src/problems/LeetCode27.java) (入门) 
+
+[179. 最大数](https://github.com/codinglin/leetcode/blob/master/src/problems/LeetCode179.java) (进阶) 
+
+[75. 颜色分类](https://github.com/codinglin/leetcode/blob/master/src/problems/LeetCode75.java) (进阶) 

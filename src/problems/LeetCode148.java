@@ -2,16 +2,17 @@ package problems;
 
 public class LeetCode148 {
     public ListNode sortList(ListNode head) {
-        if(head==null||head.next==null)return head;
+        if(head==null || head.next==null)
+            return head;
         ListNode slow=head;
         ListNode fast=head;
         while(fast.next!=null && fast.next.next!=null){
             slow=slow.next;
             fast=fast.next.next;
         }
-        ListNode head2=slow.next;
-        slow.next=null;
-        return merge(sortList(head),sortList(head2));
+        ListNode head2 = slow.next;
+        slow.next = null;
+        return merge(sortList(head), sortList(head2));
     }
 
     private ListNode merge(ListNode head1, ListNode head2) {

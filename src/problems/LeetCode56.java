@@ -103,3 +103,26 @@ public class LeetCode56 {
         merge(a);
     }
 }
+
+class LeetCode56_1 {
+    public int[][] merge(int[][] intervals) {
+        Arrays.sort(intervals, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[0] - o2[0];
+            }
+        });
+        List<int[]> list = new ArrayList<>();
+        int index = -1;
+        for (int i = 0; i < intervals.length; i++) {
+            if(index == -1 || intervals[i][0] > list.get(index)[1]) {
+                list.add(new int[]{intervals[i][0], intervals[i][1]});
+                index++;
+            } else {
+                list.add(new int[]{list.get(index)[0], Math.max(list.get(index)[1], intervals[i][1])});
+                list.remove(index);
+            }
+        }
+        return list.toArray(new int[list.size()][]);
+    }
+}
