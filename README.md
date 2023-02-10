@@ -9,7 +9,7 @@
 + 剑指 Offer 第一版：[code](src/JZOffer)
 + 剑指 Offer 第二版：[code](src/JZOffer2)
 
-## 排序
+## 排序 [详细总结](src/summarize/sort.md)
 快速排序（Quick Sort）， 归并排序（Merge Sort）的原理。
 
 ## 链表
