@@ -12,7 +12,7 @@
 ## 排序 [详细总结](src/summarize/sort.md)
 快速排序（Quick Sort）， 归并排序（Merge Sort）的原理。
 
-## 链表
+## 链表 [详细总结](src/summarize/linked-list.md)
 链表这类的题，可以多考虑双指针、快慢指针、栈等方式。
 
 ## 树
