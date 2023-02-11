@@ -14,4 +14,4 @@
 
 [215. 数组中的第K个最大元素](../problems/LeetCode215.java) (进阶，快速排序) 
 
-[4. 寻找两个正序数组的中位数](../problems/LeetCode4.java) (进阶，快速排序) 
+[4. 寻找两个正序数组的中位数](../problems/LeetCode4.java) (进阶，二分) 
