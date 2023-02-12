@@ -40,7 +40,7 @@ trie，又称前缀树或字典树，是一种有序树，用于保存关联数�
 一个节点的所有子孙都有相同的前缀，也就是这个节点对应的字符串，而根节点对应空字符串。
 一般情况下，不是所有的节点都有对应的值，只有叶子节点和部分内部节点所对应的键才有相关的值。
 
-## 堆、栈、队列、哈希表类
+## 堆、栈、队列、哈希表类 [详细总结](src/summarize/head-stack-hash.md)
 堆（Heap or Priority Queue）、栈（Stack）、队列（Queue）、哈希表类（Hashmap、Hashset）
 
 ## 回溯 [详细总结](src/summarize/backtrack.md)
