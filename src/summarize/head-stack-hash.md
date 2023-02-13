@@ -14,3 +14,9 @@
 
 ## Heap／Priority Queue题目：
 [973. 最接近原点的K个点](../problems/LeetCode973.java)
+
+[347. 前K个高频元素](../problems/LeetCode347.java)
+
+[23. 合并K个升序链表](../problems/LeetCode23.java)
+
+[264. 丑数II](../problems/LeetCode264.java)
