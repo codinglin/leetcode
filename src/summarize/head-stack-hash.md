@@ -20,3 +20,5 @@
 [23. 合并K个升序链表](../problems/LeetCode23.java)
 
 [264. 丑数II](../problems/LeetCode264.java)
+
+[378. 有序矩阵中第 K 小的元素](../problems/LeetCode378.java)
