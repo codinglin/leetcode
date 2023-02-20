@@ -16,3 +16,4 @@ public class LeetCode543 {
         return Math.max(Left,Right)+1;//返回节点深度
     }
 }
+
