@@ -15,7 +15,7 @@
 ## 链表 [详细总结](src/summarize/linked-list.md)
 链表这类的题，可以多考虑双指针、快慢指针、栈等方式。
 
-## 树
+## 树 [详细总结](src/summarize/tree.md)
 ### 二叉树：
 
 前序遍历递归与非递归写法 [code](src/NiukeTop101/BM23.java)。
