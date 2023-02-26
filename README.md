@@ -1,13 +1,15 @@
-# leetcode
-个人刷题总结
+# leetcode个人刷题总结
 
-刷题部分节选：
+**刷题部分：**
 
 + LeetCode 热门 100 题：[code](src/HOT100)
 + 牛客笔试 必刷 101 题：[code](src/NiukeTOP101)
 + 设计模式 java 实现：[code](src/designPattern)
 + 剑指 Offer 第一版：[code](src/JZOffer)
 + 剑指 Offer 第二版：[code](src/JZOffer2)
++ 针对题型刷题（如下）
+
+**以下是题型分类，详细总结中总结了典型例题**
 
 ## 排序 [详细总结](src/summarize/sort.md)
 快速排序（Quick Sort）， 归并排序（Merge Sort）的原理。
