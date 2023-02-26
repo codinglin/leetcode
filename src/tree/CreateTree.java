@@ -43,7 +43,7 @@ public class CreateTree {
         String substring = str.substring(1, str.length()-1);
 
         String[] strs = substring.split(",");//获取输入的字符串序列
-        if (strs.length == 0) return  null;
+        if (strs.length == 0) return null;
 
         Queue<TreeNode> queue = new LinkedList<>();
         TreeNode root = new TreeNode(Integer.parseInt(strs[0]));
