@@ -50,3 +50,7 @@ class TreeNode {
 [701. 二叉搜索树中的插入操作](../problems/LeetCode701.java) (中等) 
 
 [110. 平衡二叉树](../problems/LeetCode110.java) (简单) 
+
+[107. 二叉树的层序遍历II](../problems/LeetCode107.java) (中等) 
+
+[124. 二叉树中的最大路径和](../problems/LeetCode124.java) (困难) 
