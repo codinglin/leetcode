@@ -44,3 +44,9 @@ class TreeNode {
 [971. 翻转二叉树以匹配先序遍历](../problems/LeetCode971.java) (中等) 
 
 [236. 二叉树的最近公共祖先](../problems/LeetCode236.java) (中等) 
+
+[98. 验证二叉搜索树](../problems/LeetCode98.java) (中等) 
+
+[701. 二叉搜索树中的插入操作](../problems/LeetCode701.java) (中等) 
+
+[110. 平衡二叉树](../problems/LeetCode110.java) (简单) 

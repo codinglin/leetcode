@@ -16,7 +16,7 @@ public class LeetCode236 {
         if (left == null) {
             return right;
         }
-        // 右子树没有p 也没有 q，就返回左子树的结果
+        // 右子树没有 p 也没有 q，就返回左子树的结果
         if(right == null) {
             return left;
         }
