@@ -102,4 +102,7 @@ BFS 也是图论中算法的一种。不同于 DFS， BFS 采用横向搜索的�
 
 [127. 单词接龙](../problems/LeetCode127.java) (困难)
 
-[130. 被围绕的区域](../problems/LeetCode130.java) (困难)
+[130. 被围绕的区域](../problems/LeetCode130.java) (中等)
+
+[752. 打开转盘锁](../problems/LeetCode752.java) (中等)
+
