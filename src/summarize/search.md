@@ -20,7 +20,20 @@ DFS 和 BFS 是搜索的核心，贯穿搜索篇的始终，因此有必要先�
 
 #### 算法模板
 
-下面我们借助递归来完成 DFS。
+网格结构要比二叉树结构稍微复杂一些，它其实是一种简化版的图结构。要写好网格上的 DFS 遍历，我们首先要理解二叉树上的 DFS 遍历方法，再类比写出网格结构上的 DFS 遍历。我们写的二叉树 DFS 遍历一般是这样的：
+
+```java
+void traverse(TreeNode root) {
+    if(root == null) {
+        return;    
+    }
+    // 访问两个相邻结点：左子结点、右子节点
+    traverse(root.left);
+    traverse(root.right);
+}
+```
+
+网格DFS遍历的框架，下面我们借助递归来完成 DFS。
 
 ```java
 boolean[] visited = new boolean[n];
@@ -84,3 +97,7 @@ BFS 也是图论中算法的一种。不同于 DFS， BFS 采用横向搜索的�
 [103. 二叉树的锯齿形层序遍历](../problems/LeetCode103.java) (中等)
 
 [297. 二叉树的序列化与反序列化](../problems/LeetCode297.java) (中等)
+
+[200. 岛屿数量](../problems/LeetCode200.java) (中等)
+
+[127. 单词接龙](../problems/LeetCode127.java) (困难)
