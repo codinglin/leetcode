@@ -13,3 +13,12 @@
 * 盈利计划：多维费用的 0-1 背包最大值。[code](../problems/LeetCode879.java).
 ### 分组背包
 * 掷骰子的N种方法：每一组是一个骰子，每个骰子只能拿一个体积为 1到6 的物品。[code](../problems/LeetCode1155.java).
+
+## 常见例题
+[674. 最长连续递增序列](../problems/LeetCode674.java)
+
+[1143. 最长公共子序列](../problems/LeetCode1143.java) (前缀型dp)
+
+[300. 最长递增子序列](../problems/LeetCode300.java) (接龙型dp)
+
+[368. 最大整除子集](../problems/LeetCode368.java) (接龙型dp)
