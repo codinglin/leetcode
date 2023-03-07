@@ -34,6 +34,6 @@
 形象地来看的话，就是 r 指针不停向右移动，l 指针仅仅在窗口满足条件之后才会移动，起到窗口收缩的效果。
 
 ## 例题
-- [3. 无重复字符的最长子串](../HOT100/Main3.java)
-- [209. 长度最小的子数组](../problems/LeetCode209.java)
-- [567. 字符串的排列](../problems/LeetCode567.java)
+- [567. 字符串的排列](../problems/LeetCode567.java) (固定窗口)
+- [3. 无重复字符的最长子串](../HOT100/Main3.java) (可变窗口)
+- [209. 长度最小的子数组](../problems/LeetCode209.java) (可变窗口)
