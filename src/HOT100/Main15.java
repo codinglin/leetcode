@@ -37,3 +37,7 @@ public class Main15 {
 
     }
 }
+
+class Main15_1 {
+    
+}
