@@ -78,3 +78,31 @@ class Main17_1{
         }
     }
 }
+
+class Main17_2 {
+    private String[] map = {"abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+
+    private StringBuilder sb = new StringBuilder();
+
+    private List<String> res = new ArrayList<>();
+
+    public List<String> letterCombinations(String digits) {
+        if(digits == null || digits.length() == 0) {
+            return res;
+        }
+        backtrack(digits, 0);
+        return res;
+    }
+    
+    private void backtrack(String digits, int index) {
+        if(index == digits.length()) {
+            res.add(String.valueOf(sb));
+            return;
+        }
+        for (int i = 0; i < map[digits.charAt(index)-'2'].length(); i++) {
+            sb.append(map[digits.charAt(index)-'2'].charAt(i));
+            backtrack(digits, index + 1);
+            sb.deleteCharAt(sb.length() - 1);
+        }
+    }
+}
