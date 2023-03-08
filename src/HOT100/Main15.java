@@ -39,5 +39,34 @@ public class Main15 {
 }
 
 class Main15_1 {
-    
+    List<List<Integer>> res = new ArrayList<>();
+    public List<List<Integer>> threeSum(int[] nums) {
+        if(nums==null||nums.length <= 2) {
+            return res;
+        }
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (nums[i] > 0) break;
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            findNums(nums, i, i + 1, nums.length - 1);
+        }
+        return res;
+    }
+
+    private void findNums(int[] nums, int i, int left, int right) {
+        int sum = - nums[i];
+        while (left < right) {
+            if(nums[left] + nums[right] == sum) {
+                res.add(new ArrayList<>(Arrays.asList(nums[i], nums[left++], nums[right--])));
+                while (left < right && nums[left] == nums[left - 1]) left++;
+                while (left < right && nums[right] == nums[right + 1]) right--;
+            } else if (nums[left] + nums[right] < sum) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+    }
 }
