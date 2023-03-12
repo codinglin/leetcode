@@ -84,3 +84,59 @@ class LeetCode200_1 {
         return numIsLands;
     }
 }
+
+/**
+ * 扩展题：关于求岛屿中哪个岛屿面积最大的问题？
+ */
+class LeetCode_special {
+    static int num = 0;
+    public static int maxAreaOfIsland(int[][] grid) {
+        /**
+         * 只存值为1的元素是否访问
+         */
+        boolean[][] isVisited = new boolean[grid.length][grid[0].length];
+        int result = 0;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j] == 0){
+                    continue;
+                }
+                if (isVisited[i][j]){
+                    continue;
+                }
+                num = 0;
+                int len = dfs(grid, i, j, isVisited);
+                result = Math.max(len,result);
+            }
+        }
+        return result;
+    }
+
+    private static int dfs(int[][] grid, int i, int j, boolean[][] isVisited) {
+        int row = grid.length;
+        int col = grid[0].length;
+        if (isVisited[i][j]){
+            return 0;
+        }
+        isVisited[i][j] = true;
+        num++;
+        //上
+        if (i - 1 >= 0  && !isVisited[i - 1 ][j] && grid[i - 1][j] == 1){
+            dfs(grid,i - 1 , j, isVisited);
+
+        }
+        //右
+        if (j + 1 < col &&  !isVisited[i][j + 1] && grid[i][j + 1] == 1){
+            dfs(grid,i , j + 1, isVisited);
+        }
+        //下
+        if (i + 1 < row  && !isVisited[i + 1][j] && grid[i + 1][j] == 1){
+            dfs(grid,i + 1, j, isVisited);
+        }
+        //左
+        if (j - 1 >= 0  && !isVisited[i][j - 1] && grid[i][j -1] == 1){
+            dfs(grid, i, j - 1 , isVisited);
+        }
+        return num;
+    }
+}
