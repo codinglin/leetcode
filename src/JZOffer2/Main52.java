@@ -1,53 +1,35 @@
 package JZOffer2;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main52 {
-    public TreeNode increasingBST(TreeNode root) {
-        List<Integer> res = new ArrayList<Integer>();
-        inorder(root, res);
-        TreeNode dummyNode = new TreeNode(-1);
-        TreeNode currNode = dummyNode;
-        for (int value : res) {
-            currNode.right = new TreeNode(value);
-            currNode = currNode.right;
+    ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        Set<ListNode> visited = new HashSet<ListNode>();
+        ListNode temp = headA;
+        while (temp != null) {
+            visited.add(temp);
+            temp = temp.next;
         }
-        return dummyNode.right;
+        temp = headB;
+        while (temp != null) {
+            if (visited.contains(temp)) {
+                return temp;
+            }
+            temp = temp.next;
+        }
+        return null;
     }
 
-    public void inorder(TreeNode node, List<Integer> res) {
-        if (node == null) {
-            return;
+    public ListNode getIntersectionNode1(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
         }
-        inorder(node.left, res);
-        res.add(node.val);
-        inorder(node.right, res);
-    }
-}
-
-// 在中序遍历的过程中改变节点指向
-class Main52_1{
-    private TreeNode resNode;
-
-    public TreeNode increasingBST(TreeNode root) {
-        TreeNode dummyNode = new TreeNode(-1);
-        resNode = dummyNode;
-        inorder(root);
-        return dummyNode.right;
-    }
-
-    public void inorder(TreeNode node) {
-        if (node == null) {
-            return;
+        ListNode pA = headA, pB = headB;
+        while (pA != pB) {
+            pA = pA == null ? headB : pA.next;
+            pB = pB == null ? headA : pB.next;
         }
-        inorder(node.left);
-
-        // 在中序遍历的过程中修改节点指向
-        resNode.right = node;
-        node.left = null;
-        resNode = node;
-
-        inorder(node.right);
+        return pA;
     }
 }

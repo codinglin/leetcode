@@ -5,8 +5,8 @@
 + LeetCode 热门 100 题：[code](src/HOT100)
 + 牛客笔试 必刷 101 题：[code](src/NiukeTOP101)
 + 设计模式 java 实现：[code](src/designPattern)
-+ 剑指 Offer 第一版：[code](src/JZOffer)
-+ 剑指 Offer 第二版：[code](src/JZOffer2)
++ 剑指 Offer 第一版：[code](src/JZOffer2)
++ 剑指 Offer 第二版：[code](src/JZOfferTuJi)
 + 针对题型刷题（如下）
 
 **以下是题型分类，详细总结中总结了典型例题**

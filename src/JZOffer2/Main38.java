@@ -1,19 +1,35 @@
 package JZOffer2;
 
-import java.util.Stack;
+import java.util.*;
 
 public class Main38 {
-    public int[] dailyTemperatures(int[] temperatures) {
-        Stack<Integer> stack = new Stack<>();
-        int[] position = new int[temperatures.length];
-        int index = 0;
-        while (index < temperatures.length){
-            while (!stack.isEmpty() && temperatures[stack.peek()] < temperatures[index]){
-                int res = stack.pop();
-                position[res] = index - res;
-            }
-            stack.push(index++);
+    Set<String> rec;
+    boolean[] visited;
+
+    public String[] permutation(String s) {
+        int n = s.length();
+        rec = new HashSet<>();
+        visited = new boolean[n];
+        char[] arr = s.toCharArray();
+        Arrays.sort(arr);
+        StringBuffer perm = new StringBuffer();
+        backtrack(arr, 0, n, perm);
+        return rec.stream().toArray(String[]::new);
+    }
+
+    private void backtrack(char[] arr, int i, int n, StringBuffer perm) {
+        if(i == n){
+            rec.add(perm.toString());
+            return;
         }
-        return position;
+        for (int j = 0; j < n; j++) {
+            if(!visited[j]){
+                visited[j] = true;
+                perm.append(arr[j]);
+                backtrack(arr, i+1, n, perm);
+                perm.deleteCharAt(perm.length() - 1);
+                visited[j] = false;
+            }
+        }
     }
 }

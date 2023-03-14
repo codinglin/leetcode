@@ -46,10 +46,41 @@ public class LeetCode215 {
     }
 }
 
+class Code215_1{
+    Random random = new Random();
+    public int findKthLargest(int[] nums, int k){
+        return quickSort(nums, nums.length - k, 0, nums.length - 1);
+    }
+
+    private int quickSort(int[] nums, int k, int left, int right) {
+        int i = random.nextInt(right - left + 1) + left;
+        int pivot = nums[i];
+        swap(nums, i, right);
+        int pointer = left;
+        for (int j = left; j < right; j++) {
+            if(nums[j] <= pivot) {
+                swap(nums, j, pointer++);
+            }
+        }
+        swap(nums, right, pointer);
+        if(pointer == k) {
+            return nums[pointer];
+        } else {
+            return pointer < k ? quickSort(nums, k, pointer + 1, right) : quickSort(nums, k, left, pointer - 1);
+        }
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+}
+
 /**
  * 基于堆排序的选择方法
  */
-class LeetCode215_1 {
+class LeetCode215_2 {
     public int findKthLargest(int[] nums, int k) {
         int heapSize = nums.length;
         buildMaxHeap(nums, heapSize);

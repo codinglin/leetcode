@@ -1,24 +1,20 @@
 package JZOffer2;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 public class Main53 {
-    public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
-        Deque<TreeNode> stack = new ArrayDeque<>();
-        TreeNode prev = null, curr = root;
-        while(!stack.isEmpty() || curr!=null){
-            while(curr != null){
-                stack.push(curr);
-                curr = curr.left;
+    public int search(int[] nums, int target) {
+        return helper(nums, target) - helper(nums, target - 1);
+    }
+
+    int helper(int[] nums, int tar){
+        int i = 0, j = nums.length - 1;
+        while (i<j){
+            int mid = (i+j) / 2;
+            if(nums[mid] <= tar){
+                i = mid + 1;
+            }else{
+                j = mid - 1;
             }
-            curr = stack.pop();
-            if(prev == p){
-                return curr;
-            }
-            prev = curr;
-            curr = curr.right;
         }
-        return null;
+        return i;
     }
 }

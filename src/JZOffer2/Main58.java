@@ -1,86 +1,103 @@
 package JZOffer2;
 
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
+/**
+ * 自行编写对应函数
+ */
 public class Main58 {
-    TreeMap<Integer, Integer> map;
+    public String reverseWords(String s){
+        StringBuilder sb = trimSpace(s);
+        // 翻转字符串
+        reverse(sb, 0, sb.length() - 1);
 
-    public Main58() {
-         this.map = new TreeMap<>();
+        // 翻转每个单词
+        reverseEachWord(sb);
+
+        return sb.toString();
     }
 
-    public boolean book(int start, int end) {
-        Map.Entry<Integer, Integer> entry1= map.floorEntry(start);
-        Map.Entry<Integer, Integer> entry2= map.ceilingEntry(start);
-
-        if (entry1 != null && entry1.getValue() > start) {
-            return false;
-        }
-        if (entry2 != null && entry2.getKey() < end) {
-            return false;
+    private StringBuilder trimSpace(String s){
+        int left = 0, right = s.length() - 1;
+        // 去掉字符串开头的空白字符
+        while (left <= right && s.charAt(left) == ' ') {
+            ++left;
         }
 
-        map.put(start, end);
-        return true;
+        // 去掉字符串末尾的空白字符
+        while (left <= right && s.charAt(right) == ' ') {
+            --right;
+        }
+
+        // 将字符串间多余的空白字符去除
+        StringBuilder sb = new StringBuilder();
+        while (left <= right) {
+            char c = s.charAt(left);
+
+            if (c != ' ') {
+                sb.append(c);
+            } else if (sb.charAt(sb.length() - 1) != ' ') {
+                sb.append(c);
+            }
+
+            ++left;
+        }
+        return sb;
+    }
+
+    private void reverse(StringBuilder sb, int left, int right) {
+        while (left < right) {
+            char tmp = sb.charAt(left);
+            sb.setCharAt(left++, sb.charAt(right));
+            sb.setCharAt(right--, tmp);
+        }
+    }
+
+    private void reverseEachWord(StringBuilder sb) {
+        int n = sb.length();
+        int start = 0, end = 0;
+
+        while (start < n) {
+            // 循环至单词的末尾
+            while (end < n && sb.charAt(end) != ' ') {
+                ++end;
+            }
+            // 翻转单词
+            reverse(sb, start, end - 1);
+            // 更新start，去找下一个单词
+            start = end + 1;
+            ++end;
+        }
     }
 }
 
 /**
- * 普通的二叉搜索树 (BST) 只维护了一个元素值。
- * 这里让 BST 维护一个区间，即 (start, end),凡是比当前节点 start 更小的 end 所在区间应该在当前节点的左子树，
- * 凡是比当前节点的 end 更大的 start 所在区间应该在当前节点的右子树。
- * 这两种情况都不符合的区间即存在交集的区间，不应该被插入到树中。
+ * 双端队列
  */
-class MyCalendar{
-    class TreeNode{
-        TreeNode left;
-        TreeNode right;
-        int start;
-        int end;
-
-        public TreeNode() {
+class Main58_1{
+    public String reverseWords(String s) {
+        int left = 0, right = s.length() - 1;
+        while (left <= right && s.charAt(left) == ' '){
+            ++left;
         }
-
-        public TreeNode(int start, int end){
-            this.start = start;
-            this.end = end;
+        while (left <= right && s.charAt(right) == ' '){
+            --right;
         }
-    }
-
-    TreeNode root;
-
-    public MyCalendar(){
-
-    }
-
-    public boolean book(int start, int end){
-        if(root == null){
-            root = new TreeNode(start, end);
-            return true;
-        }
-        // 类似二分搜索BST
-        TreeNode p = root;
-        while (p != null){
-            if(end <= p.start){
-                // 该区间应该在当前节点的左子树
-                if(p.left == null){
-                    // 若是左子树为空，那这就是应该插入的位置
-                    p.left = new TreeNode(start, end);
-                    return true;
-                }
-                p = p.left;
-            }else if(start >= p.end){
-                // 同理，该区间应该在该节点的右子树
-                if(p.right == null){
-                    p.right = new TreeNode(start, end);
-                    return true;
-                }
-                p = p.right;
-            }else{
-                return false;
+        Deque<String> d = new ArrayDeque<>();
+        StringBuilder word = new StringBuilder();
+        while (left <= right) {
+            char c = s.charAt(left);
+            if ((word.length() != 0) && (c == ' ')) {
+                // 将单词 push 到队列的头部
+                d.offerFirst(word.toString());
+                word.setLength(0);
+            } else if (c != ' ') {
+                word.append(c);
             }
+            ++left;
         }
-        return false;
+        d.offerFirst(word.toString());
+        return String.join(" ", d);
     }
 }

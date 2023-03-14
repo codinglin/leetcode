@@ -1,30 +1,37 @@
 package JZOffer2;
 
-import java.util.Collections;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main35 {
-    public int findMinDifference(List<String> timePoints) {
-        int n = timePoints.size();
-        if (n > 1440) {
-            return 0;
+    public Node copyRandomList(Node head) {
+        if(head == null){
+            return null;
         }
-        Collections.sort(timePoints);
-        int ans = Integer.MAX_VALUE;
-        int t0Minutes = getMinutes(timePoints.get(0));
-        int preMinutes = t0Minutes;
-        for(int i=1; i<timePoints.size(); i++){
-            int minutes = getMinutes(timePoints.get(i));
-            ans = Math.min(ans, minutes-preMinutes);
-            preMinutes = minutes;
+        Node cur = head;
+        Map<Node, Node> map = new HashMap<>();
+        while(cur != null){
+            map.put(cur, new Node(cur.val));
+            cur = cur.next;
         }
-        ans = Math.min(ans, t0Minutes + 1440 - preMinutes);
-        return ans;
-    }
-
-    public int getMinutes(String t){
-        return ((t.charAt(0) - '0') * 10 + (t.charAt(1) - '0')) * 60
-                + (t.charAt(3) - '0') * 10 + (t.charAt(4) - '0');
+        cur = head;
+        while(cur != null){
+            map.get(cur).next = map.get(cur.next);
+            map.get(cur).random = map.get(cur.random);
+            cur = cur.next;
+        }
+        return map.get(head);
     }
 }
 
+class Node{
+    int val;
+    Node next;
+    Node random;
+
+    public Node(int val) {
+        this.val = val;
+        this.next = null;
+        this.random = null;
+    }
+}

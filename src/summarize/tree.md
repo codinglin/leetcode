@@ -29,9 +29,9 @@ class TreeNode {
 ```
 
 ### 例题：
-[剑指Offer 55. 二叉树的深度](../JZOffer/Main55.java) (简单) 
+[剑指Offer 55. 二叉树的深度](../JZOffer2/Main55.java) (简单) 
 
-[剑指Offer 34. 二叉树中和为某一值的路径](../JZOffer/Main34.java) (中等) 
+[剑指Offer 34. 二叉树中和为某一值的路径](../JZOffer2/Main34.java) (中等) 
 
 [101. 对称二叉树](../problems/LeetCode101.java) (简单) 
 

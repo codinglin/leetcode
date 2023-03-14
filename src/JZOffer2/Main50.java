@@ -1,52 +1,59 @@
 package JZOffer2;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
 
+/**
+ * 使用哈希表存储频数
+ */
 public class Main50 {
-
-    public int pathSum(TreeNode root, int targetSum) {
-        if(root == null){
-            return 0;
+    public char firstUniqChar(String s) {
+        Map<Character, Integer> frequency = new HashMap<Character, Integer>();
+        for (int i = 0; i < s.length(); ++i) {
+            char ch = s.charAt(i);
+            frequency.put(ch, frequency.getOrDefault(ch, 0) + 1);
         }
-        int ret = rootSum(root, targetSum);
-        ret += pathSum(root.left, targetSum);
-        ret += pathSum(root.right, targetSum);
-        return ret;
-    }
-
-    public int rootSum(TreeNode root, int targetSum){
-        int ret = 0;
-        if(root == null){
-            return 0;
+        for (int i = 0; i < s.length(); ++i) {
+            if (frequency.get(s.charAt(i)) == 1) {
+                return s.charAt(i);
+            }
         }
-        int val = root.val;
-        if(val == targetSum){
-            ret++;
-        }
-        ret += rootSum(root.left, targetSum - val);
-        ret += rootSum(root.right, targetSum - val);
-        return ret;
+        return ' ';
     }
 }
 
+/**
+ * 队列
+ */
 class Main50_1{
-    public int pathSum(TreeNode root, int targetSum){
-        HashMap<Long, Integer> prefix = new HashMap<>();
-        prefix.put(0L, 1);
-        return dfs(root, prefix, 0, targetSum);
+    public char firstUniqChar(String s) {
+        Map<Character, Integer> position = new HashMap<>();
+        Queue<Pair> queue = new LinkedList<Pair>();
+        int n = s.length();
+        for (int i = 0; i < n; i++) {
+            char ch = s.charAt(i);
+            if(!position.containsKey(ch)){
+                position.put(ch, i);
+                queue.offer(new Pair(ch, i));
+            }else{
+                position.put(ch, -1);
+                while(!queue.isEmpty() && position.get(queue.peek().ch) == -1){
+                    queue.poll();
+                }
+            }
+        }
+        return queue.isEmpty() ? ' ':queue.poll().ch;
     }
 
-    private int dfs(TreeNode root, HashMap<Long, Integer> prefix, long curr, int targetSum) {
-        if(root == null){
-            return 0;
+    class Pair{
+        char ch;
+        int pos;
+
+        Pair(char ch, int pos){
+            this.ch = ch;
+            this.pos = pos;
         }
-        int ret = 0;
-        curr += root.val;
-        ret = prefix.getOrDefault(curr - targetSum, 0);
-        prefix.put(curr, prefix.getOrDefault(curr, 0) + 1);
-        ret += dfs(root.left, prefix, curr, targetSum);
-        ret += dfs(root.right, prefix, curr, targetSum);
-        prefix.put(curr, prefix.getOrDefault(curr, 0) - 1);
-        return ret;
     }
 }
