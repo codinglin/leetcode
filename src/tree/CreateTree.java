@@ -68,3 +68,23 @@ public class CreateTree {
         return  root;
     }
 }
+
+class CreateTree_1{
+    int i = 0; // 计数
+    public TreeNode<Integer> createBinaryTree(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return null;
+        }
+        TreeNode<Integer> node = new TreeNode<>();
+        if(i < arr.length) {
+            node.val = arr[i++];
+            if(node.val != - 1) {
+                return null;
+            } else {
+                node.left = createBinaryTree(arr);
+                node.right = createBinaryTree(arr);
+            }
+        }
+        return node;
+    }
+}
