@@ -31,5 +31,4 @@ public class MergeSort {
         }
         System.arraycopy(temp, 0, array, left, temp.length);
     }
-
 }
