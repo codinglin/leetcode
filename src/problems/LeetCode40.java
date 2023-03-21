@@ -36,3 +36,34 @@ public class LeetCode40 {
         }
     }
 }
+
+class LeetCode40_1 {
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        Arrays.sort(candidates);
+        List<List<Integer>> ans = new ArrayList<>();
+        Deque<Integer> res = new ArrayDeque<>();
+        dfs(candidates, ans, res, 0, target);
+        return ans;
+    }
+
+    private void dfs(int[] candidates, List<List<Integer>> ans, Deque<Integer> res, int index, int target) {
+        if(target < 0) {
+            return;
+        }
+        if(target == 0) {
+            ans.add(new ArrayList<>(res));
+            return;
+        }
+        for (int i = index; i < candidates.length; i++) {
+            if(target - candidates[i] < 0) {
+                break;
+            }
+            if(i > index && candidates[i] == candidates[i - 1]) {
+                continue;
+            }
+            res.add(candidates[i]);
+            dfs(candidates, ans, res, i + 1, target - candidates[i]);
+            res.removeLast();
+        }
+    }
+}

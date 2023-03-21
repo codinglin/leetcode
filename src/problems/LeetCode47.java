@@ -3,7 +3,7 @@ package problems;
 import java.util.*;
 
 public class LeetCode47 {
-    public List<List<Integer>> permuteUnique(int[] nums) {
+    public static List<List<Integer>> permuteUnique(int[] nums) {
         int length=nums.length;
         List<List<Integer>> ans=new ArrayList<>();
         if(length==0){
@@ -18,7 +18,7 @@ public class LeetCode47 {
     }
 
     // 深搜
-    private void dfs(int[] nums, int length, int depth, Deque<Integer> path, boolean[] used, List<List<Integer>> ans) {
+    private static void dfs(int[] nums, int length, int depth, Deque<Integer> path, boolean[] used, List<List<Integer>> ans) {
         if(depth==length){
             ans.add(new ArrayList<>(path));
             return;
@@ -38,5 +38,9 @@ public class LeetCode47 {
             path.removeLast();
             used[i]=false;
         }
+    }
+
+    public static void main(String[] args) {
+        permuteUnique(new int[]{1, 1, 2});
     }
 }

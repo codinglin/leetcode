@@ -72,5 +72,33 @@ class LeetCode39_1{
             path.removeLast();
         }
     }
-
 }
+
+class LeetCode39_2 {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        Arrays.sort(candidates);
+        List<List<Integer>> ans = new ArrayList<>();
+        Deque<Integer> res = new ArrayDeque<>();
+        dfs(candidates, ans, res, 0, target);
+        return ans;
+    }
+
+    private void dfs(int[] candidates, List<List<Integer>> ans, Deque<Integer> res, int index, int target) {
+        if(target < 0) {
+            return;
+        }
+        if(target == 0) {
+            ans.add(new ArrayList<>(res));
+            return;
+        }
+        for (int i = index; i < candidates.length; i++) {
+            if(target - candidates[i] < 0) {
+                break;
+            }
+            res.add(candidates[i]);
+            dfs(candidates, ans, res, i, target - candidates[i]);
+            res.removeLast();
+        }
+    }
+}
+

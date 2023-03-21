@@ -38,3 +38,15 @@
 **不同点**
 * 动态规划只需要求我们评估最优解是多少，最优解对应的具体解是什么并不要求。因此很适合应用于评估一个方案的效果;
 * 回溯算法可以搜索得到所有的方案（当然包括最优解），但是本质上它是一种遍历算法，时间复杂度很高。
+
+推荐 https://leetcode.cn/problems/permutations/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liweiw/
+
+#### 例题
+
+[46. 全排列](../problems/LeetCode46.java) (中等) 
+
+[47. 全排列 II](../problems/LeetCode47.java) (中等) 
+
+[39. 组合总和](../problems/LeetCode39.java) (中等) 
+
+[40. 组合总和 II](../problems/LeetCode40.java) (中等) 
