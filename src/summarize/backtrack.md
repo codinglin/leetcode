@@ -50,3 +50,9 @@
 [39. 组合总和](../problems/LeetCode39.java) (中等) 
 
 [40. 组合总和 II](../problems/LeetCode40.java) (中等) 
+
+[77. 组合](../problems/LeetCode77.java) (中等) 
+
+[78. 子集](../problems/LeetCode78.java) (中等) 
+
+[90. 子集 II](../problems/LeetCode90.java) (中等) 
