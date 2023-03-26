@@ -8,7 +8,7 @@ public class LeetCode494 {
     }
 
     private void backtrace(int[] nums, int target, int index, int sum) {
-        if(index == nums.length) { // 题目要求将全部整数联合起来，因此条件必须是 i == nums.length
+        if(index == nums.length) { // 题目要求将全部整数联合起来，因此条件必须是 index == nums.length
             if(sum == target) count++;
             return;
         }
