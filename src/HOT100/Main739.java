@@ -42,6 +42,7 @@ class Main739_1{
     }
 }
 
+// 单调栈
 class Main739_2{
     // 维护一个存储下标的单调栈，从栈底到栈顶的下标对应的温度列表中的温度依次递减。
     public static int[] dailyTemperatures(int[] temperatures) {
@@ -52,9 +53,8 @@ class Main739_2{
         int[] answer = new int[n];
         Deque<Integer> stack = new LinkedList<>();
         for(int i=0; i<n; i++){
-            int index = 0;
             while (stack.size()!=0 && temperatures[stack.peek()]<temperatures[i]){
-                index = stack.pop();
+                int index = stack.pop();
                 answer[index] = i-index;
             }
             stack.push(i);
