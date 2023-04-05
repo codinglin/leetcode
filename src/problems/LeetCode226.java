@@ -53,3 +53,21 @@ class LeetCode226_1 {
         return root;
     }
 }
+
+class LeetCode226_2 {
+    public TreeNode invertTree(TreeNode root) {
+        dfs(root);
+        return root;
+    }
+
+    private void dfs(TreeNode root) {
+        if(root == null) {
+            return;
+        }
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+        invertTree(root.left);
+        invertTree(root.right);
+    }
+}

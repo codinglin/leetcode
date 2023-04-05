@@ -140,3 +140,35 @@ class Test3{
         System.out.println(res);
     }
 }
+
+class Test4{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            int n = sc.nextInt();
+            int m = sc.nextInt();
+            PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
+                @Override
+                public int compare(Integer o1, Integer o2) {
+                    return numSum(o1) - numSum(o2);
+                }
+            });
+            for (int i = 1; i <= n; i++) {
+                queue.add(i);
+            }
+            for (int i = 1; i <= m - 1; i++) {
+                queue.poll();
+            }
+            System.out.println(queue.peek());
+        }
+    }
+
+    private static int numSum(int x) {
+        int sum = 0;
+        while (x != 0) {
+            sum += x % 10;
+            x /= 10;
+        }
+        return sum;
+    }
+}
