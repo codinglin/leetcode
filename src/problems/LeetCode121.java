@@ -90,3 +90,16 @@ class LeetCode121_1{
         maxProfit(new int[]{1,2});
     }
 }
+
+class LeetCode121_2{
+    public int maxProfit(int[] prices) {
+        int n = prices.length;
+        int minCost = prices[0];
+        int maxProfit = 0;
+        for (int i = 1; i < n; i++) {
+            minCost = Math.min(minCost, prices[i]);
+            maxProfit = Math.max(maxProfit, prices[i] - minCost);
+        }
+        return maxProfit;
+    }
+}
