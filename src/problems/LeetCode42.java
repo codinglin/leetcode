@@ -130,3 +130,9 @@ public class LeetCode42 {
         return sum;
     }
 }
+
+class LeetCode42_1 {
+    public int trap(int[] height) {
+
+    }
+}
