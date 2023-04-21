@@ -133,6 +133,6 @@ public class LeetCode42 {
 
 class LeetCode42_1 {
     public int trap(int[] height) {
-
+        return 0;
     }
 }
