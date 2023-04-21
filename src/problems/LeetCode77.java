@@ -49,3 +49,36 @@ class LeetCode77_1 {
         }
     }
 }
+
+class LeetCode77_2 {
+    public List<List<Integer>> combine(int n, int k) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> ans = new ArrayList<>();
+        dfs(res, ans, n, k, 1);
+        return res;
+    }
+
+    private void dfs(List<List<Integer>> res, List<Integer> ans, int n, int k, int index) {
+        if(ans.size() == k) {
+            res.add(new ArrayList<>(ans));
+            return;
+        }
+        for (int i = index; i <= n; i++) {
+            ans.add(i);
+            dfs(res, ans, n, k, i + 1);
+            ans.remove(ans.size() - 1);
+        }
+    }
+
+    private void dfsOptimization(List<List<Integer>> res, List<Integer> ans, int n, int k, int index) {
+        if(ans.size() == k) {
+            res.add(new ArrayList<>(ans));
+            return;
+        }
+        for (int i = index; i <= n - (k - ans.size()); i++) {
+            ans.add(i);
+            dfsOptimization(res, ans, n, k, i + 1);
+            ans.remove(ans.size() - 1);
+        }
+    }
+}
