@@ -2,6 +2,7 @@ package problems;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class LeetCode131 {
@@ -88,5 +89,40 @@ class LeetCode131_1{
             f[i][j] = -1;
         }
         return f[i][j];
+    }
+}
+
+class LeetCode131_2 {
+    boolean[][]  f;
+    List<List<String>> ans = new ArrayList<>();
+    List<String> path = new LinkedList<>();
+    int n;
+    public List<List<String>> partition(String s) {
+        n = s.length();
+        f = new boolean[n][n];
+        for (int i = 0; i < n; i++) {
+            Arrays.fill(f[i], true);
+        }
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = i + 1; j < n; j++) {
+                f[i][j] = (s.charAt(i) == s.charAt(j)) && f[i+1][j-1];
+            }
+        }
+        dfs(s, 0);
+        return ans;
+    }
+
+    private void dfs(String s, int i) {
+        if(i == n) {
+            ans.add(new ArrayList<>(path));
+            return;
+        }
+        for (int j = i; j < n; j++) {
+            if(f[i][j]){
+                path.add(s.substring(i, j+1));
+                dfs(s, j+1);
+                path.remove(path.size() - 1);
+            }
+        }
     }
 }

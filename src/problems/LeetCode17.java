@@ -28,3 +28,28 @@ public class LeetCode17 {
         }
     }
 }
+
+class LeetCode17_1 {
+    List<String> ans = new ArrayList<>();
+    String[] str = new String[]{"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    StringBuilder sb = new StringBuilder();
+    public List<String> letterCombinations(String digits) {
+        if(digits == null || digits.length() == 0) {
+            return ans;
+        }
+        dfs(digits, digits.length(), 0);
+        return ans;
+    }
+
+    private void dfs(String digits, int length, int index) {
+        if(sb.length() == length) {
+            ans.add(new String(sb));
+            return;
+        }
+        for(int i = 0; i < str[digits.charAt(index) - '2'].length(); i++) {
+            sb.append(str[digits.charAt(index) - '2'].charAt(i));
+            dfs(digits, length, index + 1);
+            sb.deleteCharAt(sb.length() - 1);
+        }
+    }
+}
