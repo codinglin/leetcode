@@ -14,3 +14,9 @@ public class LeetCode45 {
         return step;
     }
 }
+
+class LeetCode45_1 {
+    public int jump(int[] nums) {
+        return 0;
+    }
+}
