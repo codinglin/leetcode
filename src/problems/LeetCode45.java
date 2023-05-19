@@ -17,6 +17,17 @@ public class LeetCode45 {
 
 class LeetCode45_1 {
     public int jump(int[] nums) {
-        return 0;
+        int n = nums.length;
+        int ans = 0, begin = 0, end = 0;
+        while (end < n - 1) {
+            int temp = 0;
+            for (int i = begin; i <= end; i++) {
+                temp = Math.max(temp, i + nums[i]);
+            }
+            begin = end + 1;
+            end = temp;
+            ans ++;
+        }
+        return ans;
     }
 }
