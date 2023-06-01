@@ -19,3 +19,9 @@ public class LeetCode142 {
         return fast;
     }
 }
+
+class LeetCode142_1{
+    public ListNode detectCycle(ListNode head) {
+        return null;
+    }
+}
